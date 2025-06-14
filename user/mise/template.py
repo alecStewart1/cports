@@ -1,5 +1,5 @@
 pkgname = "mise"
-pkgver = "2025.1.9"
+pkgver = "2025.6.4"
 pkgrel = 0
 build_style = "cargo"
 prepare_after_patch = True
@@ -28,7 +28,7 @@ pkgdesc = "Development environment setup tool"
 license = "MIT"
 url = "https://mise.jdx.dev"
 source = f"https://github.com/jdx/mise/archive/refs/tags/v{pkgver}.tar.gz"
-sha256 = "e44369529d2a786361dd1fa136fea130216768f709cb623447e68f1b19637e13"
+sha256 = "ea8e4681dfa52a7c514f88d35a28e5456ecdc317232fc890360d6d68abd8dff0"
 
 
 def install(self):
