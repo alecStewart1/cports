@@ -1,3 +1,31 @@
+# My main branch
+
+I've create a branch that's based off the chimera cport's `master` called `alecStewart1-main`.
+Chimera's `master` branch is `chimera-main`, and I try to keep both branches as up-to-date with
+Chimera's cport master as best I can.
+
+This is where I update a lot of packages (mostly in `user`) more frequently than the base 
+chimera cports repo. I wanted to have some packages be updated more quickly for myself, but 
+I do try and contribute to cports as best I can. 
+
+The general flow of contributing to chimera's cports is:
+
+- One of the following
+  - create new/update cport in `alecStewart1-main`
+  - create a branch off of the `chimera-main`
+- Commit the branch once things seem like they're working.
+- Either
+  - Merge the split off branch into `alecStewart1-main`
+  - Make a branch that picks the files I've updated/added
+- Make a PR to chimera's cports
+- *Voilà!*
+
+Again, this isn't to explicitly be a split from Chimera's cports, it's just because I 
+personally like keeping certain packages up-to-date more quickly and try to assist the
+Chimera cport update process.
+
+**The following is the README of Chimera's cport repo.**
+
 # cports
 
 Cports is a collection of source package ports for Chimera. The system has been
