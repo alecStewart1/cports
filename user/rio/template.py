@@ -1,31 +1,31 @@
 pkgname = "rio"
 pkgver = "0.2.18"
 pkgrel = 0
-build_type = "cargo"
+build_style = "cargo"
 make_build_args = [
-    "-p rioterm",
     "--no-default-features", 
     "--features=wayland",
 ]
-make_check_arags = ["cargo-auditable", "pkgconf"]
+make_check_args = ["cargo-auditable", "pkgconf"]
 hostmakedepends = [
     "cargo-auditable", 
     "pkgconf", 
     "cmake", 
-    "python3"
+    "python"
 ]
 makedepends = [
     "rust-std",
     "freetype-devel",
-    "expat-devel",
+    "libexpat-devel",
     "fontconfig-devel",
     "libxcb-devel"
 ]
-pkgdesc = "A hardware-accelerated GPU terminal emulator focusing to run in desktops and browsers."
+pkgdesc = "Hardware-accelerated GPU terminal emulator in Rust"
 license = "MIT"
-url = "https://rioterm.com/"
+url = "https://rioterm.com"
 source = f"https://github.com/raphamorim/{pkgname}/archive/refs/tags/v{pkgver}.tar.gz"
-sha265 = "ef0ce3a21210fbade1525e74d601f31439b2fb1d261e5456ca891ef80260ca57"
+sha256 = "ef0ce3a21210fbade1525e74d601f31439b2fb1d261e5456ca891ef80260ca57"
+
 
 # TODO get man or docs from...somewhere?
 def install(self):
