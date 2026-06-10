@@ -1,5 +1,5 @@
 pkgname = "mise"
-pkgver = "2026.5.18"
+pkgver = "2026.6.2"
 pkgrel = 0
 build_style = "cargo"
 make_build_args = [
