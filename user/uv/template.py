@@ -1,5 +1,5 @@
 pkgname = "uv"
-pkgver = "0.11.17"
+pkgver = "0.11.20"
 pkgrel = 0
 build_style = "python_pep517"
 hostmakedepends = [
