@@ -18,7 +18,7 @@ pkgdesc = "Python package installer"
 license = "Apache-2.0 OR MIT"
 url = "https://github.com/astral-sh/uv"
 source = f"{url}/archive/refs/tags/{pkgver}.tar.gz"
-sha256 = "c27a8e558bbb3661cac050eb173353539a8aadce5d631f8b2b982e6c16dd9bc9"
+sha256 = "18146330b729dded1cbccc739eb15f9d4750dd226913afa00f2638dd5dfa4e48"
 # too many of them need net
 # completions with host bin
 options = ["!check", "!cross"]
