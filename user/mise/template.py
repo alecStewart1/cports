@@ -23,7 +23,7 @@ pkgdesc = "Development environment setup tool"
 license = "MIT"
 url = "https://mise.jdx.dev"
 source = f"https://github.com/jdx/mise/archive/refs/tags/v{pkgver}.tar.gz"
-sha256 = "f1a3b31060484207b1618746b526571c29ee7150e509c4229f33b1e512b2d667"
+sha256 = "02830e5399ec3f2199fb208352bc3ba0e4627578fa274ed3a273bbd3c6ff11e6"
 # check: takes forever
 options = ["!check"]
 
