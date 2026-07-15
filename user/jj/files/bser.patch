@@ -32,7 +32,7 @@ index ceb85de618a1..58a805ba3e01 100644
 -        self.scratch.put_i16_be(v);
 +        self.scratch.put_i16(v);
      }
- 
+
      #[inline]
 @@ -143,7 +143,7 @@ where
          #[cfg(target_endian = "little")]
@@ -41,7 +41,7 @@ index ceb85de618a1..58a805ba3e01 100644
 -        self.scratch.put_i32_be(v);
 +        self.scratch.put_i32(v);
      }
- 
+
      #[inline]
 @@ -153,7 +153,7 @@ where
          #[cfg(target_endian = "little")]
@@ -51,7 +51,7 @@ index ceb85de618a1..58a805ba3e01 100644
 +        self.scratch.put_i64(v);
      }
  }
- 
+
 @@ -255,7 +255,7 @@ where
          #[cfg(target_endian = "little")]
          self.scratch.put_f64_le(v);
@@ -60,4 +60,3 @@ index ceb85de618a1..58a805ba3e01 100644
 +        self.scratch.put_f64(v);
          Ok(())
      }
- 
