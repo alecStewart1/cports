@@ -1,0 +1,29 @@
+From b0645568f96e7d98989d3802c2a2aad5f5571ff2 Mon Sep 17 00:00:00 2001
+From: Alec Stewat <me@alec-stewart.dev>
+Date: Mon, 20 Jul 2026 21:00:00 +0000
+Subject: [PATCH] switch default cc to clang
+
+Chimera's bldroot only ships clang, not gcc. Nim's stock config
+hardcodes `cc = gcc`, so every `bin/nim c` invocation falls over with
+`/bin/sh: gcc: not found` once we're past the C bootstrap (which
+already picks up clang via cbuild's tool resolution).
+
+`compiler clang:` is a first-class backend in extccomp.nim, so this is
+a one-line swap. Affects koch boot, koch tools, and any direct
+`bin/nim c` calls we make.
+
+diff --git a/config/nim.cfg b/config/nim.cfg
+index 038c3c9..c20aada 100644
+--- a/config/nim.cfg
++++ b/config/nim.cfg
+@@ -9,7 +9,7 @@
+ # Environment variables can be accessed like so:
+ #  gcc.path %= "$CC_PATH"
+ 
+-cc = gcc
++cc = clang
+ 
+ # additional options always passed to the compiler:
+ --parallel_build: "0" # 0 to auto-detect number of processors
+--
+2.0
