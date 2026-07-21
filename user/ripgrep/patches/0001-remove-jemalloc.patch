@@ -9,11 +9,11 @@ index 5589334..6b232a0 100644
 - "tikv-jemallocator",
   "walkdir",
  ]
- 
+
 @@ -487,26 +486,6 @@ version = "0.16.2"
  source = "registry+https://github.com/rust-lang/crates.io-index"
  checksum = "c13547615a44dc9c452a8a534638acdf07120d4b6847c8178705da06306a3057"
- 
+
 -[[package]]
 -name = "tikv-jemalloc-sys"
 -version = "0.7.1+5.3.1-0-g81034ce1f1373e37dc865038e1bc8eeecf559ce8"
@@ -44,7 +44,7 @@ index 0fce841..186e222 100644
 @@ -60,9 +60,6 @@ serde_json = "1.0.23"
  termcolor = "1.4.0"
  textwrap = { version = "0.16.0", default-features = false }
- 
+
 -[target.'cfg(all(target_env = "musl", target_pointer_width = "64"))'.dependencies.tikv-jemallocator]
 -version = "0.7.0"
 -
@@ -62,6 +62,6 @@ index c74e645..55c4a82 100644
 -#[cfg(all(target_env = "musl", target_pointer_width = "64"))]
 -#[global_allocator]
 -static ALLOC: tikv_jemallocator::Jemalloc = tikv_jemallocator::Jemalloc;
- 
+
  /// Then, as it was, then again it will be.
  fn main() -> ExitCode {
