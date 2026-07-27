@@ -17,12 +17,6 @@ if self.profile().wordsize == 32:
     broken = "needs atomic64"
 
 
-def post_prepare(self):
-    from cbuild.util import cargo
-
-    cargo.clear_vendor_checksums(self, "cc")
-
-
 def install(self):
     self.cargo.install(wrksrc="helix-term")
     runtime_dir = "usr/lib/helix/runtime"
