@@ -4,7 +4,7 @@ _clangver = "22"
 pkgver = "16.1.0"
 _bver = pkgver
 _mnver = _bver[0 : _bver.rfind(".")]
-pkgrel = 0
+pkgrel = 1
 build_style = "gnu_configure"
 configure_args = [
     "--disable-cet",
@@ -182,7 +182,35 @@ def init_configure(self):
         )
 
 
+# libgccjit requires --enable-host-shared which slows down the main
+# compiler, so it is built separately in its own build directory
+_jit_args = [
+    "--disable-bootstrap",
+    "--enable-host-shared",
+    "--enable-languages=jit",
+]
+
+
+def post_build(self):
+    from cbuild.util import gnu_configure
+
+    _jitdir = "libgccjit-build"
+    jit_args = configure_args + _jit_args
+    gnu_configure.configure(
+        self,
+        configure_args=jit_args,
+        build_dir=_jitdir,
+    )
+    self.make.invoke(["all-gcc"], wrksrc=_jitdir)
+
+
 def post_install(self):
+    # install libgccjit before nuking libgcc
+    self.make.invoke(
+        ["jit.install-common"],
+        wrksrc="libgccjit-build/gcc",
+        env={"DESTDIR": str(self.chroot_destdir)},
+    )
     # version symlink
     self.rename(f"usr/lib/gcc/{_trip}/{_bver}", f"{_mnver}")
     # link the runtime and nuke libgcc
@@ -301,3 +329,16 @@ def _(self):
 def _(self):
     self.subdesc = "transactional memory library"
     return ["usr/lib/libitm.so.*"]
+
+
+@subpackage("libgccjit")
+def _(self):
+    self.subdesc = "GCC JIT library"
+    return ["usr/lib/libgccjit.so.*"]
+
+
+@subpackage("libgccjit-devel")
+def _(self):
+    self.subdesc = "GCC JIT library (development files)"
+    self.depends = [self.with_pkgver("gcc"), "libgccjit"]
+    return ["usr/include/libgccjit.h", "usr/include/libgccjit++.h"]
