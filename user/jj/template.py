@@ -15,15 +15,6 @@ sha256 = "cd72ac1040c93d474dcafd8dd7f8d91d7407f9358bc9ffd4a6b72f4017112eab"
 options = ["!cross"]
 
 
-def post_prepare(self):
-    from cbuild.util import cargo, patch
-
-    # done separately because we need to patch lockfile before vendoring :/
-    patch.patch(self, [self.files_path / "bser.patch"])
-
-    cargo.clear_vendor_checksums(self, "serde_bser-0.4.0")
-
-
 def post_build(self):
     for shell in ["bash", "fish", "nushell", "zsh"]:
         with open(f"{self.cwd}/jj.{shell}", "w") as o:
