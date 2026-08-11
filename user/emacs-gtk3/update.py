@@ -1,1 +1,1 @@
-../emacs-console/update.py
+user/emacs-console/update.py
