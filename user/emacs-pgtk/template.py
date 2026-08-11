@@ -7,6 +7,7 @@ configure_args = [
     "--with-gpm",
     "--with-jpeg",
     "--with-json",
+    "--with-native-compilation=aot",
     "--with-pgtk",
     "--with-webp",
     "--with-x-toolkit=gtk3",
@@ -37,6 +38,7 @@ makedepends = [
     "gtk+3-devel",
     "harfbuzz-devel",
     "lcms2-devel",
+    "libgccjit-devel",
     "libjpeg-turbo-devel",
     "libpng-devel",
     "librsvg-devel",
@@ -50,9 +52,10 @@ makedepends = [
     "tree-sitter-devel",
 ]
 checkdepends = ["bash", "git", "mandoc"]
-depends = ["ctags"]
+depends = ["ctags", "libgccjit"]
 provides = [f"emacs={pkgver}"]
-provider_priority = 20
+provider_priority = 30
+replaces = [f"emacs-pgtk~{pkgver}"]
 pkgdesc = "Extensible, customizable, self-documenting, real-time display editor"
 license = "GPL-3.0-or-later"
 url = "https://www.gnu.org/software/emacs/emacs.html"
