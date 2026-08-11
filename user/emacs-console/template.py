@@ -2,11 +2,11 @@ pkgname = "emacs-console"
 pkgver = "30.2"
 pkgrel = 2
 build_style = "gnu_configure"
-# TODO gccjit (cba to figure it out for now)
 configure_args = [
     "--with-gameuser=:_games",
     "--with-gpm",
     "--with-json",
+    "--with-native-compilation=aot",
     "--without-file-notification",
     "--without-sound",
     "--without-x",
@@ -28,13 +28,16 @@ makedepends = [
     "gmp-devel",
     "gnutls-devel",
     "lcms2-devel",
+    "libgccjit-devel",
     "libxml2-devel",
     "linux-headers",
     "ncurses-devel",
     "tree-sitter-devel",
 ]
+depends = ["libgccjit"]
 provides = [f"emacs={pkgver}"]
-provider_priority = 0
+provider_priority = 30
+replaces = [f"emacs-console~{pkgver}"]
 pkgdesc = "Extensible, customizable, self-documenting, real-time display editor"
 license = "GPL-3.0-or-later"
 url = "https://www.gnu.org/software/emacs/emacs.html"
