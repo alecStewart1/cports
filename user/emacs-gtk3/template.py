@@ -18,12 +18,14 @@ make_check_args = [
     "EXCLUDE_TESTS="
     " %eglot-tests.el"  # requires a variety of lsp servers
     " %tramp-tests.el"  # TODO: fails mysteriously
+    " %package-vc-tests.el"  # TODO: hangs
     " %shr-tests.el"  # TODO: zoom-image times out
     " %process-tests.el"  # TODO: times out
     " %package-vc-tests.el"  # TODO: hangs
 ]
 hostmakedepends = [
     "automake",
+    "ctags",
     "gawk",
     "pkgconf",
     "texinfo",
@@ -54,7 +56,7 @@ makedepends = [
     "tree-sitter-devel",
 ]
 checkdepends = ["bash", "git", "mandoc"]
-depends = ["ctags", "libgccjit"]
+depends = ["libgccjit", "ctags"]
 provides = [f"emacs={pkgver}"]
 provider_priority = 30
 replaces = [f"emacs-gtk3~{pkgver}"]

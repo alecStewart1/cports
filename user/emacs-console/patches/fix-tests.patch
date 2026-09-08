@@ -1,7 +1,7 @@
 --- a/test/src/process-tests.el
 +++ b/test/src/process-tests.el
 @@ -424,10 +424,7 @@
- 
+
  ;; Check if the Internet seems to be working.  Mainly to pacify
  ;; Debian's CI system.
 -(defvar internet-is-working
@@ -9,7 +9,7 @@
 -    (require 'dns)
 -    (dns-query "google.com")))
 +(defvar internet-is-working nil)
- 
+
  (ert-deftest lookup-family-specification ()
    "`network-lookup-address-info' should only accept valid family symbols."
 
@@ -33,7 +33,7 @@
 @@ -241,23 +241,6 @@
      (should (equal (ffap--c-path)
                     (delete-dups (ffap--c-path))))))
- 
+
 -(ert-deftest ffap-tests--c-path/gcc-mocked ()
 -  ;; Handle empty values of "gcc -print-multiarch".
 -  (cl-letf (((symbol-function 'call-process)
