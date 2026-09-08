@@ -19,6 +19,7 @@ make_check_args = [
 ]
 hostmakedepends = [
     "automake",
+    "ctags",
     "gawk",
     "pkgconf",
     "texinfo",
@@ -36,7 +37,7 @@ makedepends = [
     "tree-sitter-devel",
 ]
 checkdepends = ["bash", "git", "mandoc"]
-depends = ["ctags", "libgccjit"]
+depends = ["libgccjit", "ctags"]
 provides = [f"emacs={pkgver}"]
 provider_priority = 30
 replaces = [f"emacs-console~{pkgver}"]
