@@ -1,5 +1,5 @@
 pkgname = "uv"
-pkgver = "0.11.26"
+pkgver = "0.12.19"
 pkgrel = 0
 build_style = "python_pep517"
 hostmakedepends = [
@@ -18,7 +18,7 @@ pkgdesc = "Python package installer"
 license = "Apache-2.0 OR MIT"
 url = "https://github.com/astral-sh/uv"
 source = f"{url}/archive/refs/tags/{pkgver}.tar.gz"
-sha256 = "3af425f543cca1b4af1cf6829b15f7a1deb9d39bca57c04f70e15042a7bc4a3a"
+sha256 = "240dd2c9c5901d0532e4ed292c1111e83461acb6b93593a8416d37afd2f59e29"
 # too many of them need net
 # completions with host bin
 options = ["!check", "!cross"]
@@ -27,10 +27,10 @@ if self.profile.wordsize == 32:
     broken = "needs atomic64"
 
 
-def prepare(self):
+def post_patch(self):
     from cbuild.util import cargo
 
-    cargo.Cargo(self).vendor()
+    cargo.Cargo(self, wrksrc=".").vendor()
 
 
 def init_build(self):
