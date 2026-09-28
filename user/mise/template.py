@@ -1,5 +1,5 @@
 pkgname = "mise"
-pkgver = "2026.9.13"
+pkgver = "2026.9.16"
 pkgrel = 0
 build_style = "cargo"
 make_build_args = [
@@ -23,7 +23,7 @@ pkgdesc = "Development environment setup tool"
 license = "MIT"
 url = "https://mise.jdx.dev"
 source = f"https://github.com/jdx/mise/archive/refs/tags/v{pkgver}.tar.gz"
-sha256 = "5e3cfaeb4cfaba656fb7532759e8a268da965a76646869ca2215465a4e99aa22"
+sha256 = "8dea789491374c17b02f6c516d8e1323b547d4658f9b82eb357cf9e025aeba40"
 # check: takes forever
 options = ["!check"]
 
