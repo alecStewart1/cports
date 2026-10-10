@@ -19,6 +19,7 @@ source = (
     f"https://github.com/zellij-org/zellij/archive/refs/tags/v{pkgver}.tar.gz"
 )
 sha256 = "5cbe711437d2a61afd9287165f6aca0bcccb9ab1473633665a5b11ed55467852"
+hardening = ["vis"]
 # generates completions with host bin
 options = ["!cross"]
 
