@@ -1,5 +1,5 @@
 pkgname = "sbcl"
-pkgver = "2.6.9"
+pkgver = "2.6.10"
 pkgrel = 0
 # riscv64 FIXME, ppc FIXME (dumps core during build)
 archs = ["aarch64", "ppc64le", "x86_64"]
@@ -26,7 +26,7 @@ pkgdesc = "Steel Bank Common Lisp"
 license = "custom:sbcl AND LOOP"
 url = "https://www.sbcl.org"
 source = f"$(SOURCEFORGE_SITE)/sbcl/sbcl-{pkgver}-source.tar.bz2"
-sha256 = "c6fd1d735570eb4ff34caf9609988ca77ed0bd12b55d09a4fed075be890da513"
+sha256 = "c23eac1d0aa9ae0add7eb741f3c91b816f5ce216147f37b99da1578e5261b17c"
 # notably not pie on ppc64le due to asm stuff
 nopie_files = ["usr/bin/sbcl"]
 # tests are unreliable
